@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { aquatech_project_backend } from 'declarations/aquatech_project_backend';
+import ares from '@bundly/ares-rest';
 
 function App() {
   const [greeting, setGreeting] = useState('');
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    const name = event.target.elements.name.value;
-    aquatech_project_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
+    const response = await ares({
+      url: 'http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/greet',
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    console.log(response);
     return false;
   }
 
