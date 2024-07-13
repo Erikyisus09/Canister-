@@ -1,0 +1,50 @@
+{
+  "canisters": {
+    "aquatech_project_backend": {
+      "build": "npx azle aquatech_project_backend",
+      "candid": "src/aquatech_project_backend/aquatech_project_backend.did",
+      "gzip": true,
+      "main": "src/aquatech_project_backend/src/index.ts",
+      "tech_stack": {
+        "cdk": {
+          "azle": {}
+        },
+        "language": {
+          "javascript": {},
+          "typescript": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".azle/aquatech_project_backend/aquatech_project_backend.wasm"
+    },
+    "aquatech_project_frontend": {
+      "dependencies": [
+        "aquatech_project_backend"
+      ],
+      "source": [
+        "src/aquatech_project_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "aquatech_project_frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
